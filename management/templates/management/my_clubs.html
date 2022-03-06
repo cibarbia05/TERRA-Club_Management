@@ -1,0 +1,194 @@
+{% extends 'management/user_account_layout.html' %}
+{% load static %}
+    {% block css %}
+        <link rel="stylesheet"  href="{% static 'management/styles/my_clubs.css' %}">
+        <link rel="stylesheet"  href="{% static 'management/styles/all-clubs.css' %}">
+    {% endblock %}
+
+
+    {% block body_in %}
+        <div class="title">
+            <div>
+                <h1>Clubs</h1>
+            </div>
+        </div>
+        <div class="tab-content-container">
+            <div class="club-list-manager">
+                <div class="display-type-container">
+                    <div class="display-type-title">
+                        <label>Display</label>
+                    </div>
+                    <div class="display-type">
+                     <a title="grid" class="clickable-item grid-display">
+                        <i class='bx bxs-grid-alt'></i>
+                    </a>
+                    <a title="list" class="clickable-item list-display">
+                        <i class='bx bx-list-ul' ></i>
+                    </a>
+                    <a title="quick-list" class="clickable-item quick-list-display">
+                        <i class='bx bx-dots-horizontal'></i>
+                    </a>
+
+                    </div>
+                </div>
+                <div class="sort-type-container">
+                    <div class="sort-type-title">
+                        <label>Sort</label>
+                    </div>
+                     <div class="sort-type">
+                        <a title="participants" class="clickable-item member-amount-sort">
+                            <i class='bx bx-user'></i>
+                        </a>
+                        <a title="alphabetical" class="clickable-item alphabetical-sort">
+                            <i class='bx bx-sort-a-z' ></i>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+{#        style this for sponsors    #}
+            <div class="full-detail-list-display">
+                {% if clubs.count != 0 %}
+                     {% for club in clubs %}
+                         <a href="{% url 'club_info' club.pk %}">
+                             <div class="full-detail-club-item">
+                                <div class="full-detail-club-item-image-container">
+
+                                        {% if club.club_primary_image %}
+                                            <img class="full-detail-club-item-display-image" src={{ club.club_primary_image.url }}>
+                                        {% else %}
+                                            <img class="full-detail-club-item-display-image" src="/media/images/microsoft-365-hC_796Wu-VY-unsplash.jpg" alt="Club Image">
+                                        {% endif %}
+                                    </div>
+
+                                 <div class="full-detail-club-item-content-container">
+                                    <div>
+                                        <h1>{{ club.name }}</h1>
+                                    </div>
+                                     <div>
+                                         <i class='bx bxs-calendar'></i>
+                                     </div>
+                                    {% for sponsor in club.sponsors.all %}
+                                         <div>
+                                            <label>Sponsor: {{ sponsor.name }}</label>
+                                        </div>
+
+                                    {% endfor %}
+
+                                    {% for officer in club.officers.all %}
+                                         <div>
+                                            <label>Position: {{ officer.name }}</label>
+                                        </div>
+
+                                    {% endfor %}
+                                   <div>
+                                        <label>{{ club.description }}</label>
+                                   </div>
+                                    <div>
+                                        <label>Members: {{ club.members.count }}</label>
+                                    </div>
+                                 </div>
+                             </div>
+                         </a>
+
+                         </div>
+                     {% endfor %}
+                {% endif %}
+            </div>
+
+
+{#        #}
+{#            <div class="club-list-grid-display">#}
+{#                {% if clubs.count != 0 %}#}
+{#                     {% for club in clubs %}#}
+{#                         <a href="#" class="clickable-club-item">#}
+{##}
+{#                             <div class="club-item" style="background-image: url(#}
+{#                                     {% if club.club_primary_image %}#}
+{#                                        {{ club.club_primary_image.url }}#}
+{#                                     {% else %}#}
+{#                                       /media/images/microsoft-365-hC_796Wu-VY-unsplash.jpg#}
+{#                                     {% endif %})">#}
+{#                                 <div class="club-item-dimmed-layer">#}
+{#                                     <div>#}
+{#                                         <h2 class="club-item-name">{{ club.name }}</h2>#}
+{#                                     </div>#}
+{#                                    <div>#}
+{#                                        <i class='bx bx-heart club-item-favorite-icon'></i>#}
+{#                                    </div>#}
+{##}
+{#                                 </div>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    {% endfor %}#}
+{#                {% else %}#}
+{#                    <h1>There are no clubs currently</h1>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#             <div class="club-list-list-display">#}
+{#                 <table class="searchable sortable club-list-list-display-table">#}
+{#                      <tr>#}
+{#                          <th>Favorite</th>#}
+{#                          <th>Club</th>#}
+{#                          <th>Image</th>#}
+{#                          <th>Calendar</th>#}
+{#                          <th>Documents</th>#}
+{#                          <th>Members</th>#}
+{#                          <th>Sponsors</th>#}
+{#                          <th>Officers</th>#}
+{#                      </tr>#}
+{##}
+{#                    {% if clubs.count != 0 %}#}
+{#                         {% for club in clubs %}#}
+{#                             <tr>#}
+{#                                 <th><i class='bx bx-heart' ></i></th>#}
+{#                                 <td>{{ club.name }}</td>#}
+{#                                 <td>#}
+{#                                     {% if club.club_primary_image %}#}
+{#                                         <img class="list-display-image" src={{ club.club_primary_image.url }}>#}
+{#                                     {% else %}#}
+{#                                         <img class="selectable-image-item" src="/media/images/microsoft-365-hC_796Wu-VY-unsplash.jpg" alt="Club Image">#}
+{#                                     {% endif %}#}
+{#                                 </td>#}
+{#                                 <th><i class='bx bxs-calendar'></i></th>#}
+{#                                 <td><a href="">Documents</a></td>#}
+{#                                 <td><a href="">{{ club.members.count }}</a></td>#}
+{#                                 <td><a href="">{{ club.sponsors.count }}</a></td>#}
+{#                                 <td><a href="">{{ club.officers.count }}</a></td>#}
+{#                              </tr>#}
+{#                        {% endfor %}#}
+{#                     {% else %}#}
+{#                        <h1>There are no clubs currently</h1>#}
+{#                    {% endif %}#}
+{#                 </table>#}
+{#            </div>#}
+        </div>
+    {% endblock %}
+
+
+    {% block script_in %}
+        <script>
+
+                {#alert("ddd")#}
+                const club_list_grid_display = document.getElementsByClassName('club-list-grid-display');
+                const club_list_list_display =  document.getElementsByClassName('club-list-list-display')
+                const grid_display =  document.getElementsByClassName('grid-display')
+                const list_display = document.getElementsByClassName('list-display')
+                {#alert(grid_display)#}
+                grid_display.addEventListener("click", () => {
+                    {#alert("ddddd1")#}
+                    club_list_list_display.style.display='none';
+                    club_list_grid_display.style.display='flex';
+
+                })
+                list_display.addEventListener("click", () => {
+                    {#alert("dddsdd2")#}
+                    club_list_grid_display.style.display='none';
+                    club_list_list_display.style.display='flex';
+
+                })
+
+        </script>
+
+    {% endblock %}

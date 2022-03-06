@@ -1,0 +1,25 @@
+{% extends 'management/user_account_layout.html' %}
+{% load static %}
+    {% block css %}
+        <link rel="stylesheet"  href="{% static 'management/styles/settings.css' %}">
+    {% endblock %}
+
+
+    {% block body_in %}
+        <div class="title">
+            <h1>Settings</h1>
+
+        </div>
+
+{#            {% include 'management/administrator_upload_settings.html' %}#}
+{#           {% block body_administrator_upload_settings %}#}
+{#           {% endblock %}#}
+
+
+
+    {% endblock %}
+
+
+    {% block script %}
+
+    {% endblock %}

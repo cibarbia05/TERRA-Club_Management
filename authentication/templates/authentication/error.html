@@ -1,0 +1,12 @@
+{% extends 'authentication/layout.html' %}
+{% load static %}
+    {% block css %}
+
+    {% endblock %}
+    {% block title %}Error{% endblock %}
+    {% block body %}
+        <div class="container">
+            <h1>ERROR</h1>
+            <h4>{{ error_message }}</h4>
+        </div>
+    {% endblock %}

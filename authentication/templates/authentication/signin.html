@@ -1,0 +1,67 @@
+{% extends 'authentication/layout.html' %}
+{% load static %}
+    {% block title %}Log In{% endblock %}
+    {% block css %}
+         <link rel="stylesheet"  href="{% static 'authentication/styles/signin.css' %}">
+    {% endblock %}
+    {% block script %}
+        <script>
+             function switch_password_visibility() {
+              var x = document.getElementById("password1");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            }
+        </script>
+    {% endblock %}
+
+    {% block body %}
+        <div class="sign-in-all">
+            <div class="container-form sign-in-div">
+                <div class="decor-section">
+                    <div class="decor-section-content">
+                        <h1>Use your credentials to login</h1>
+                        <label>By signing in you agree to our <a>Terms of use</a> and <a>Privacy Policy</a>.</label>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="col-title">
+                            <h1 class="title">Sign In</h1>
+                        </div>
+                        <div class="col-form">
+                            <div>
+                                {{ sign_in_form.id.label }}
+                            </div>
+                            <div>
+                                {{ sign_in_form.id }}
+                            </div>
+                        </div>
+                        <div class="col-form">
+                            <div>
+                                {{ sign_in_form.password.label }}
+                            </div>
+                            <div>
+                                {{ sign_in_form.password }}
+                            </div>
+                        </div>
+                        <div class="col-pass-items">
+                            <input id="show_password" type="checkbox" onclick="switch_password_visibility()">
+                            <label for="show_password" class="checkbox_text">Show Password</label>
+        {#                    <a href="{% url 'password_forgot_email' %}" class="forgot-password">Forgot Password</a>#}
+                        </div>
+                        <div class="col-errors">
+                            {{ sign_in_form.non_field_errors }}
+                        </div>
+
+                         <div class="col-log-btn">
+                             <button class="sign-in-btn">Sign In</button>
+                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,258 @@
+{% extends 'authentication/layout.html' %}
+{% load static %}
+    {% block css %}
+        <link rel="stylesheet"  href="{% static 'authentication/styles/main_page.css' %}">
+
+    {% endblock %}
+    {% block body %}
+        <div class="body-container">
+                <div class="top-container">
+                     <div class="top-container-layer">
+                        <div class="top-container-item">
+{#                            <h1 class="title">Explore, Manage, Create...</h1>#}
+                            <h1 class="title">Start
+                              <span
+                                      class="txt-rotate"
+                                 data-period="2000"
+                                 data-rotate='[ "Exploring", "Managing", "Creating"]'></span>
+                                 Clubs
+                            </h1>
+
+                        </div>
+                         <div class="top-container-item">
+                            <strong class="description">Access your school's clubs at the palm of your hands</strong>
+
+                        </div>
+{#                    <div class="col">#}
+{#                        {% include 'authentication/authentication_actions.html' %}#}
+{#                    </div>#}
+                     </div>
+                </div>
+                <div class="slide-selectables">
+                    {% for title_image in title_images %}
+                         <div class="selectable-image">
+                              <img class="selectable-image-item" src="/media/{{ title_image.image.name }}" alt="Club Image">
+                         </div>
+                    {% endfor %}
+                </div>
+
+
+            <div class="user-info-tabs-container">
+                 <div class="user-info-tab user-info1 rotate-left show-on-scroll">
+                     <div class="blank-user-info-tab-style">
+                        <strong>
+                            Track school clubs' and their progress
+                        </strong>
+                    </div>
+                    <div style="background-image: url({% static 'management/images/startup-g298fef292_1920.jpg' %})" class="filled-user-info-tab-style">
+                           <div class="user-info-tab-layer">
+                                <h4>Administrators</h4>
+                            </div>
+                        <img>
+                    </div>
+
+                </div>
+                <div class="user-info-tab user-info2 rotate-right show-on-scroll">
+                    <div style="background-image: url({% static 'management/images/startup-g760d085d0_1920.jpg' %})" class="filled-user-info-tab-style">
+                        <div class="user-info-tab-layer">
+                            <h4>Managers</h4>
+                        </div>
+
+                    </div>
+                    <div class="blank-user-info-tab-style">
+                        <strong>
+                            Direct club members through an engaging experience
+                        </strong>
+
+                    </div>
+
+                </div>
+                <div class="user-info-tab user-info3 rotate-left show-on-scroll">
+                    <div class="blank-user-info-tab-style">
+                        <strong>
+                            Make your club experience more organized
+                        </strong>
+                    </div>
+                    <div style="background-image: url({% static 'management/images/people-g31f54f3a5_1920.jpg' %})" class="filled-user-info-tab-style">
+                        <div class="user-info-tab-layer">
+                            <h4>Members</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="promoting-info-container">
+                <div class="promoting-info-item">
+
+                </div>
+                <div class="promoting-info-item">
+
+                </div>
+                <div class="promoting-info-item">
+
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+    {% block script %}
+        <script>
+         var scroll = window.requestAnimationFrame ||
+                function(callback){ window.setTimeout(callback, 1000/60)};
+            var elementsToShow = document.querySelectorAll('.show-on-scroll');
+            function loop() {
+                elementsToShow.forEach(function (element) {
+
+                if (isElementInViewport(element)) {
+                  element.classList.add('is-visible');
+                } else {
+                  element.classList.remove('is-visible');
+                }
+              });
+
+              scroll(loop);
+            }
+            function isElementInViewport(el) {
+              // special bonus for those using jQuery
+              if (typeof jQuery === "function" && el instanceof jQuery) {
+                el = el[0];
+              }
+              var rect = el.getBoundingClientRect();
+              return (
+                (rect.top <= 0
+                  && rect.bottom >= 0)
+                ||
+                (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+                  rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+                ||
+                (rect.top >= 0 &&
+                  rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+              );
+            }
+            window.onload = function() {
+                loop()
+                var elements = document.getElementsByClassName('txt-rotate');
+              for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                  new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+              }
+              // INJECT CSS
+              var css = document.createElement("style");
+              css.type = "text/css";
+              css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+              document.body.appendChild(css);
+                {##}
+{#                #}
+                selectable_image_items = document.getElementsByClassName('selectable-image-item')
+                selectable_image_items[0].classList.add("selected_item")
+                selectable_image_items[0].style.backgroundColor = "#196fba";
+                document.querySelector(".top-container").style.backgroundImage = `url(${selectable_image_items[0].src})`
+                setInterval(function() { change_site_background(selectable_image_items); }, 3000 );
+
+
+                for (let i=0; i < selectable_image_items.length; i++) {
+                    selectable_image_items[i].addEventListener("click", async function () {
+
+                        for (let j = 0; j < selectable_image_items.length; j++) {
+                            if (j !== i) {
+                                selectable_image_items[j].style.backgroundColor = "#ffffff"
+                                selectable_image_items[j].classList.remove("selected_item")
+                            }
+                        }
+
+                        selectable_image_items[i].classList.add("selected_item")
+                        selectable_image_items[i].style.backgroundColor = "#196fba"
+                        document.querySelector(".top-container").style.backgroundImage = `url(${selectable_image_items[i].src})`
+                        await new Promise(resolve => setTimeout(resolve, 3000));
+                    });
+                     selectable_image_items[i].addEventListener("mouseover", function() {
+                         for (let j = 0; j < selectable_image_items.length; j++) {
+                             if (j !== i) {
+                                 selectable_image_items[j].style.opacity = '0.7';
+                             }
+                         }
+                         selectable_image_items[i].style.opacity = '1';
+
+
+                     });
+                      selectable_image_items[i].addEventListener("mouseout", function() {
+                          for (let i = 0; i < selectable_image_items.length; i++) {
+                              selectable_image_items[i].style.opacity = '1';
+
+                          }
+                      });
+
+                }
+
+            };
+            function change_site_background(selectable_image_items){
+                  for (let i=0; i<selectable_image_items.length; i++) {
+                      if (selectable_image_items[i].classList.contains("selected_item")) {
+                          let current_selected = selectable_image_items[i]
+                          current_selected.style.backgroundColor = "#ffffff"
+                          current_selected.classList.remove("selected_item")
+                          if (i + 1 < selectable_image_items.length) {
+                              selectable_image_items[i + 1].classList.add("selected_item")
+                              selectable_image_items[i + 1].style.backgroundColor = "#196fba"
+                              document.querySelector(".top-container").style.backgroundImage = `url(${selectable_image_items[i+1].src})`
+                          } else {
+                              selectable_image_items[0].classList.add("selected_item")
+                              selectable_image_items[0].style.backgroundColor = "#196fba"
+                              document.querySelector(".top-container").style.backgroundImage = `url(${selectable_image_items[0].src})`
+                          }
+                          break;
+
+                      }
+
+                  }
+                  {#selectable_image_items[0].classList.add("selected_item")#}
+            }
+            var TxtRotate = function(el, toRotate, period) {
+              this.toRotate = toRotate;
+              this.el = el;
+              this.loopNum = 0;
+              this.period = parseInt(period, 10) || 1000;
+              this.txt = '';
+              this.tick();
+              this.isDeleting = false;
+            };
+
+            TxtRotate.prototype.tick = function() {
+              var i = this.loopNum % this.toRotate.length;
+              var fullTxt = this.toRotate[i];
+
+              if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+              } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+              }
+
+              this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+              var that = this;
+              var delta = 300 - Math.random() * 100;
+
+              if (this.isDeleting) { delta /= 2; }
+
+              if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+              } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+              }
+
+              setTimeout(function() {
+                that.tick();
+              }, delta);
+            };
+
+
+        </script>
+
+    {% endblock %}

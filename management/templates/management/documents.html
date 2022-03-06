@@ -1,0 +1,54 @@
+{% extends 'management/user_account_layout.html' %}
+{% load static %}
+    {% block css %}
+        <link rel="stylesheet"  href="{% static 'management/styles/documents.css' %}">
+    {% endblock %}
+
+
+    {% block body_in %}
+        <div class="title">
+            <h1>Documents</h1>
+
+        </div>
+        <div class="all-documents-tab-container">
+            <div class="left-settings-container">
+                <div class="tab-inner-container document-submission-form-adding-container">
+                    <h3 class="tab-inner-container-title">Create New Document Submission Form</h3>
+                </div>
+                <div class="tab-inner-container document-recently-uploaded-container">
+                    <h3 class="tab-inner-container-title">Recently Uploaded Documents</h3>
+                </div>
+                <div class="tab-inner-container update-all-data-container">
+                    <h3 class="tab-inner-container-title">Yearly Data Update</h3>
+                    {% include 'management/administrator_upload_settings.html' %}
+                </div>
+            </div>
+            <div class="right-settings-container">
+                <div class="tab-inner-container all-documents-container">
+                    <h3 class="tab-inner-container-title">All Documents</h3>
+                </div>
+                <div class="tab-inner-container history-container">
+                    <h3 class="tab-inner-container-title">Document History</h3>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+{#            {% include 'management/administrator_upload_settings.html' %}#}
+{#           {% block body_administrator_upload_settings %}#}
+{#           {% endblock %}#}
+
+        </div>
+
+    {% endblock %}
+
+
+    {% block script %}
+
+    {% endblock %}

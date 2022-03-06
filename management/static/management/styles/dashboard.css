@@ -1,0 +1,91 @@
+.user-content-container{
+    height:95rem;
+}
+.welcome-container{
+   margin-left:1rem;
+    width:98.4%;
+}
+.all-dashboard-content{
+    padding-left:0.5rem;
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction:column;
+    align-items:start;
+    justify-content: space-evenly;
+}
+.dashboard-tab-container{
+    padding-left:0.5rem  ;
+    width:100%;
+    height:94%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-items:center;
+}
+.top-dashboard-container{
+    width:100%;
+    height:39.6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.left-top-dashboard-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    width:49%;
+    height:99%
+}
+.my-clubs-dashboard-container{
+    height:49%;
+    width:100%;
+
+}
+.my-clubs-dashboard{
+    margin:1rem 2rem;
+    max-width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:#e1e4ee;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.documents-required-dashboard-container{
+    height:49%;
+    width:100%;
+}
+.right-top-dashboard-container{
+    width:49%;
+    height:98%
+}
+.middle-dashboard-container{
+    width:98.7%;
+    height:19.6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.recent-members-container{
+    height:100%;
+    width:100%;
+}
+.bottom-dashboard-container{
+    width:100%;
+    height:39.6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.left-bottom-dashboard-container{
+    width:49%;
+    height:98%
+}
+.right-bottom-dashboard-container{
+    width:49%;
+    height:98%
+}

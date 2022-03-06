@@ -1,0 +1,27 @@
+{% extends 'authentication/layout.html' %}
+{% load static %}
+    {% block title %}Register{% endblock %}
+    {% block css %}
+         <link rel="stylesheet"  href="{% static 'authentication/styles/enter_email.css' %}">
+    {% endblock %}
+
+    {% block body %}
+        <div class="container-form enter_email_div">
+           <form action="" method="POST">
+               {% csrf_token %}
+                <div class="col-title">
+                    <h1 class="title">Enter Email</h1>
+                </div>
+               <div class="col-form">
+                   {{ form.email }}
+               </div>
+
+                <div class="col-errors">
+                    {{ form.non_field_errors }}
+                </div>
+               <div class="col-log-btn">
+                   <button class="button">Reset</button>
+               </div>
+           </form>
+        </div>
+    {% endblock %}

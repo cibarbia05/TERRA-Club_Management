@@ -1,0 +1,46 @@
+
+.container_authentication_actions{
+      box-shadow: 1px 1px 1px 1px #1b1d23;
+
+    margin-top: 4rem;
+    width:25rem;
+    height:34vh;
+    background-color: #353439;
+    border: 2rem;
+    border-radius:0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+.sign-in-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+.register-container{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items:center;
+}
+button{
+    background-color:#9cc9c6;
+    color:#5e70a6;
+    border:none;
+    width:15rem;;
+    padding: 1rem;
+}
+button:hover{
+    cursor: pointer;
+    background-color:#d2db0e;
+    color:#1d552b;
+
+}
+a{
+    color:white;
+    font-size:0.80rem;
+}
+label{
+    font-size:0.8rem;
+}

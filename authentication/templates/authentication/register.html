@@ -1,0 +1,41 @@
+{% extends 'authentication/layout.html' %}
+{% load static %}
+{% block css %}
+         <link rel="stylesheet"  href="{% static 'authentication/styles/register.css' %}">
+    {% endblock %}
+{% block body %}
+    <div class="register-all">
+        <div class="container-form register-div">
+            <div class="decor-section">
+                <div class="decor-section-content">
+                    <h1>Use your school issued email to register</h1>
+                    <h3>A confirmation email will be sent to this your school issued email, with instruction on how to set your account password</h3>
+                    <label>By registering you agree to our <a>Terms of use</a> and <a>Privacy Policy</a>.</label>
+                </div>
+            </div>
+            <div class="form-section">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="col-title">
+                        <h1 class="title">Register</h1>
+                    </div>
+                    <div class="col-form">
+                        <div>
+                            {{ registration_form.email.label }}
+                         </div>
+                        <div>
+                            {{ registration_form.email }}
+                        </div>
+                    </div>
+                     <div class="col-errors">
+                         {{ registration_form.non_field_errors }}
+                     </div>
+                    <div class="col-log-btn">
+                         <button class="register-btn">Verify</button>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

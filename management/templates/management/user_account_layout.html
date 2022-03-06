@@ -1,0 +1,198 @@
+{% load static %}
+    <head>
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet"  href="{% static 'management/styles/user_account_nav.css' %}">
+         <link rel="stylesheet"  href="{% static 'management/styles/base.css' %}">
+
+        {% block css %}
+
+        {% endblock %}
+    </head>
+    <body>
+     {% block body %}
+        <div class="all-content-container">
+
+
+
+               <div class="sidebar close">
+                <header>
+                    <div class="image-text">
+                        <span class="image">
+                            <img src="logo.png" alt="">
+                        </span>
+
+                        <div class="text logo-text">
+                            <span class="name">ClubTastic</span>
+                        </div>
+                    </div>
+
+                    <i class='bx bx-menu toggle'></i>
+                </header>
+
+                <div class="menu-bar">
+                    <div class="menu">
+
+                        <li class="search-box">
+                            <i class='bx bx-search icon'></i>
+                            <input type="text" placeholder="Search...">
+                        </li>
+
+                        <ul class="menu-links">
+                            <li class="nav-link {% if navbar == "dashboard" %}nav-item-active{% endif %}">
+                                <a class="nav-link-a" href= {% url 'dashboard' %}>
+                                    <i class='bx bx-home-alt icon' ></i>
+                                    <span class="text nav-text">Dashboard</span>
+                                </a>
+                            </li>
+                            {% if is_club_sponsor %}
+                                  <li class="nav-link {% if navbar == "my_clubs" %}nav-item-active{% endif %}">
+                                    <a class="nav-link-a" href={% url 'my_clubs' %}>
+                                        <i class='bx bx-book-content icon' ></i>
+                                        <span class="text nav-text">All Clubs</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-link {% if navbar == "all_clubs" %}nav-item-active{% endif %}">
+                                    <a class="nav-link-a" href={% url 'all_clubs' %}>
+                                        <i class='bx bx-book-content icon' ></i>
+                                        <span class="text nav-text">My Clubs</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+
+                            <li class="nav-link {% if navbar == "analytics" %}nav-item-active{% endif %}">
+                                <a class="nav-link-a" href= {% url 'analytics' %}>
+                                    <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                                    <span class="text nav-text">Analytics</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-link {% if navbar == "favorites" %}nav-item-active{% endif %}">
+                                <a class="nav-link-a" href= {% url 'favorites' %}>
+                                    <i class='bx bx-heart icon' ></i>
+                                    <span class="text nav-text">Favorites</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-link {% if navbar == "documents" %}nav-item-active{% endif %}">
+                                <a class="nav-link-a" href= {% url 'documents' %}>
+                                    <i class='bx bx-file icon' ></i>
+                                    <span class="text nav-text">Documents</span>
+                                </a>
+                            </li>
+
+                             <li class="nav-link {% if navbar == "settings" %}nav-item-active{% endif %}">
+                                <a class="nav-link-a" href= {% url 'settings' %}>
+                                    <i class='bx bx-cog icon' ></i>
+                                    <span class="text nav-text">Settings</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="bottom-content">
+                        <li class="">
+                            <a class='logout-li' href={% url 'logout' %}>
+                                <i class='bx bx-log-out icon' ></i>
+                                <span class="text nav-text">Logout</span>
+                            </a>
+                        </li>
+
+                        <li class="mode">
+                            <div class="sun-moon">
+                                <i class='bx bx-moon icon moon'></i>
+                                <i class='bx bx-sun icon sun'></i>
+                            </div>
+                            <span class="mode-text text">Dark mode</span>
+
+                            <div class="toggle-switch">
+                                <span class="switch"></span>
+                            </div>
+                        </li>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="user-content-container">
+                {% block body_in %}
+                {% endblock %}
+            </div>
+
+            </div>
+            <div class="user-welcome-container">
+
+            </div>
+
+        </div>
+
+
+
+
+    {% endblock %}
+
+    </body>
+
+   <script>
+    window.onload = function() {
+        const body = document.querySelector('body'),
+            sidebar = body.querySelector('.sidebar'),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text"),
+            nav_links = body.getElementsByClassName("nav-link"),
+            all_content_container = body.querySelector(".all-content-container");
+
+            for(let i=0;i<nav_links.length;i++){
+
+                 nav_links[i].addEventListener("click", () => {
+                  nav_links[i].classList.add("selected-nav-link")
+                })
+            }
+
+
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+            if( toggle.classList.contains('bx-menu')){
+                toggle.classList.remove('bx-menu')
+                toggle.classList.add('bx-x')
+            }
+            else{
+                 toggle.classList.remove('bx-x')
+                toggle.classList.add('bx-menu')
+            }
+            if (all_content_container.classList.contains('shift-right')){
+                all_content_container.classList.remove('shift-right')
+            }
+            else{
+                all_content_container.classList.add('shift-right')
+            }
+        })
+
+        searchBtn.addEventListener("click", () => {
+            sidebar.classList.remove("close");
+        })
+
+        modeSwitch.addEventListener("click", () => {
+            body.classList.toggle("dark");
+
+            if (body.classList.contains("dark")) {
+                modeText.innerText = "Light mode";
+            } else {
+                modeText.innerText = "Dark mode";
+
+            }
+        });
+    }
+
+   </script>
+
+
+    {% block script_in %}
+
+
+    {% endblock %}

@@ -1,0 +1,28 @@
+
+{% load static %}
+    {% block css %}
+                <link rel="stylesheet"  href="{% static 'authentication/styles/main_page.css' %}">
+        <link rel="stylesheet"  href="{% static 'authentication/styles/authentication_actions.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% endblock %}
+
+        <div class="container_authentication_actions">
+            <div class="sign-in-container">
+                <div>
+                    <h3 class="action-title">Sign in</h3>
+                </div>
+                <label>Already have an account? Sign in and explore you school's clubs</label>
+                <a href={% url 'sign_in' %}><button class="fa fa-user">Sign in</button></a>
+                <a href="">Forgot Password?</a>
+            </div>
+            <div class="register-container">
+                <div>
+                    <h3 class="action-title">Register</h3>
+                </div>
+                <label>Need to create an account? Register here!</label>
+                <a href={% url 'register' %}><button class="fa fa-pencil">Register</button></a>
+            </div>
+
+        </div>
+

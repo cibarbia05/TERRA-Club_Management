@@ -1,0 +1,55 @@
+.register-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.register-tabs-container{
+    display: flex;
+
+}
+.info-tab{
+    margin: 2rem;
+    border-radius: 1rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    padding:7rem;
+    color:white;
+}
+.info-tab{
+    height:20vh;
+    background-color: #204d9b;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+    width:53.3%;
+}
+.info-tab strong{
+    font-size:1.20rem;
+}
+.info-number{
+    background-color: #334494;
+    border-radius: 50%;
+    width:5rem;
+    height:5rem;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    font-size:3rem;
+    box-shadow: 2px 2px 4px 2px #17264e;
+}
+.register-btn{
+    background-color:#2686e9;
+    border:none;
+    padding:0.9rem;
+    color:white;
+}
+.register-btn:hover{
+    cursor:pointer;
+    background-color:#27a5ef;
+}
+.register-info-title h3{
+    font-size:1.755rem;
+}

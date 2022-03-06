@@ -1,0 +1,120 @@
+{% extends 'management/user_account_layout.html' %}
+{% load static %}
+    {% block css %}
+        <link rel="stylesheet"  href="{% static 'management/styles/dashboard.css' %}">
+
+    {% endblock %}
+
+
+    {% block body_in %}
+        <div class="title">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="all-dashboard-content">
+            <div class="tab-inner-container welcome-container">
+                <h2>Welcome, {{ request.user.name }}</h2>
+            </div>
+            <div class="dashboard-tab-container">
+                <div class="top-dashboard-container">
+                    <div class="left-top-dashboard-container">
+                        <div class="tab-inner-container my-clubs-dashboard-container">
+                            <h3 class="tab-inner-container-title">My Clubs</h3>
+                            <div class="my-clubs-dashboard">
+                                   {% if clubs.count != 0 %}
+                                     {% for club in clubs %}
+                                         <a href="#" class="clickable-club-item">
+
+                                             <div class="club-item" style="background-image: url(
+                                                     {% if club.club_primary_image %}
+                                                        {{ club.club_primary_image.url }}
+                                                     {% else %}
+                                                       /media/images/microsoft-365-hC_796Wu-VY-unsplash.jpg
+                                                     {% endif %})">
+                                                 <div class="club-item-dimmed-layer">
+                                                     <div>
+                                                         <h2 class="club-item-name">{{ club.name }}</h2>
+                                                     </div>
+                                                    <div>
+                                                        <i class='bx bx-heart club-item-favorite-icon'></i>
+                                                    </div>
+
+                                                 </div>
+                                            </div>
+                                        </a>
+                                    {% endfor %}
+                                {% else %}
+                                    <h1>There are no clubs currently</h1>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="tab-inner-container documents-required-dashboard-container">
+                            <h3 class="tab-inner-container-title">Documents Required</h3>
+                        </div>
+                    </div>
+                    <div class="tab-inner-container right-top-dashboard-container">
+                        <div class="calendar-dashboard-container">
+                            <h3 class="tab-inner-container-title">Calendar</h3>
+{#                            {% include "event_calendar/calendarapp/calendar.html" %}#}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-inner-container middle-dashboard-container">
+                    <div class="recent-members-container">
+                        <h3 class="tab-inner-container-title">Recent Members</h3>
+                    </div>
+                </div>
+                <div class="bottom-dashboard-container">
+                    <div class="tab-inner-container left-bottom-dashboard-container">
+                        <div class="customize-attendance-forms-dashboard-container">
+                            <h3 class="tab-inner-container-title">Attendance Forms</h3>
+                        </div>
+                    </div>
+                    <div class="tab-inner-container right-bottom-dashboard-container">
+                        <div class="my-officers-dashboard-container">
+                            <h3 class="tab-inner-container-title">My Officers</h3>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#            if is an administrator#}
+{#            <div class="recent-documents-submissions">#}
+{##}
+{#            </div>#}
+{##}
+{##}
+{#            <div class="my-clubs">#}
+                {#            if member#}
+                 {#            if is sponsor#}
+                {#            if is officer#}
+{##}
+{#            </div>#}
+
+        </div>
+    {% endblock %}
+
+
+    {% block script %}
+
+    {% endblock %}

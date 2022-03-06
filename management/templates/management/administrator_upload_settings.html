@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="col">
+
+    </div>
+    <div class="col">
+
+    </div>
+    <div class="upload-data-forms-container">
+        <form class="data-upload-form" enctype= 'multipart/form-data' action="" method="POST">
+            {% csrf_token %}
+            <div class="upload-data-container">
+                   <div class="col">
+                        <label>Upload Teacher Data</label>
+                        {{ upload_teacher_excel_file_form.teacher_data }}
+                    </div>
+            </div>
+            <div class="upload-data-btn-container">
+                <div class="col-log-btn">
+                    <button class="upload-btn">Upload</button>
+                </div>
+            </div>
+        </form>
+         <form class="data-upload-form" enctype= 'multipart/form-data' action="" method="POST">
+            {% csrf_token %}
+            <div class="upload-data-container">
+                   <div class="col">
+                        <label>Upload Student Data</label>
+                        {{ upload_student_excel_file_form.student_data }}
+                    </div>
+            </div>
+            <div class="upload-data-btn-container">
+                <div class="col-log-btn">
+                    <button class="upload-btn">Upload</button>
+                </div>
+            </div>
+        </form>
+         <form class="data-upload-form" enctype= 'multipart/form-data' action="" method="POST">
+            {% csrf_token %}
+            <div class="upload-data-container">
+                   <div class="col">
+                        <label>Upload Club Data</label>
+                        {{ upload_club_excel_file_form.club_data }}
+                    </div>
+            </div>
+            <div class="upload-data-btn-container">
+                <div class="col-log-btn">
+                    <button class="upload-btn">Upload</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

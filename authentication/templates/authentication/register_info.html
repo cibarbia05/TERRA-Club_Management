@@ -1,0 +1,52 @@
+{% extends 'authentication/layout.html' %}
+{% load static %}
+{% block css %}
+         <link rel="stylesheet"  href="{% static 'authentication/styles/register_info.css' %}">
+    {% endblock %}
+{% block body %}
+    <div class="register-info-container">
+        <div class="register-info-title">
+            <h3>Take these 3 steps to get started</h3>
+        </div>
+        <div class="register-tabs-container">
+            <div class="info-tab">
+                <label class="info-number">
+                    1
+                </label>
+                <img>
+                <strong>
+                    Enter your school issued email when registering
+                </strong>
+
+            </div>
+            <div class="info-tab">
+                <label class="info-number">
+                    2
+                </label>
+                <img>
+                <strong>
+                    Check your email to set your account password
+                </strong>
+
+            </div>
+            <div class="info-tab">
+                <label class="info-number">
+                    3
+                </label>
+                <img>
+                <strong>
+                    Sign in with your credentials to get started
+                </strong>
+
+            </div>
+        </div>
+        <div class="register-actions-container">
+            <div class="register-actions">
+                <a href="{% url 'register' %}"><button class="register-btn">Register Now!</button></a>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
+
