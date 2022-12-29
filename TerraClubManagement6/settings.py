@@ -13,15 +13,11 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = os.environ.get('SECRET_KEY')
-print(SECRET_KEY)
 DEBUG = os.environ.get("DEBUG") == "1"
 ALLOWED_HOSTS = ['127.0.0.1']
 if not DEBUG:
     ALLOWED_HOSTS += [os.environ.get("ALLOWED_HOSTS")]
-
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -32,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'management',
-
     'media',
 ]
 
@@ -104,34 +99,23 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 STATIC_URL = 'static/'
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-#         'LOCATION': 'chatisfy.herokuapp.com',
-#     }
-# }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'terraclubmanagement@gmail.com'
-EMAIL_HOST_PASSWORD = 'TeRrA.ClUbS.05'
-# Static files (CSS, JavaScript, Images)
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_SAVE_EVERY_REQUEST = True
 AUTHENTICATION_BACKENDS = (
-        'django.contrib.auth.backends.RemoteUserBackend',
-        'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.RemoteUserBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
 ACCOUNT_USERNAME_REQUIRED = False
