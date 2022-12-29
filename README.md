@@ -33,12 +33,12 @@ For Club Officers to create accounts they will have to be verified via email by 
 Inspiration for idea:
 As the president of chess club and officer of coding club I have been able to see some weaknesses and opportunities for improvement in the physical management system of the clubs. For example, every club must physically turn in mission statements, attendance rosters, and additional required information; not only is this time-consuming, but also very disorganized because these physical papers could easily get lost, and an online place like this web app can help keep everything in one single place, for quick and easy access by administrators. Another problem that I have seen is the fact that clubs keep track of their members in many distinct ways leading to the use of time taking process and disorientation of who and who isn’t in the club. As a result, the use of this web app proposes that during Club Rush students are still able to sign up for remind, discord, or schoology for easy contact between them and their club leaders, but they should also join their specific clubs through the web app so that club leaders and, more importantly, sponsors can keep track of a yearly list of members and officers with little effort.
 ## Action Plan:
-1. Step 1 (Possible Duration: 1 week): Create an outline of the model of the Users in the program (Sponsors, Officers, and Members), which will contain the characteristics and abilities that each will have in the program.
-2.Step 2 (Possible Duration: 1 week): Create a basic overview of the linking system of the webpage (including what happens when one clicks on links and buttons)
-3.Step 3 (Possible Duration: 1 week): Set up the settings of the app (including databases, deployment server, static information storage, time zones, and document and image storage)
-4.Step 4 (Possible Durations: up to 1 week): Search for online programming libraries that might be useful for specific aspects of the app.
-5.Step 5 (Possible Duration: 1week): Plan the design of the Web app (including colors, where images will be placed, animations, etc)
-6.Step 6 (Possible Duration: up to 5 months): Implement Views (what the user sees) along with the algorithms that go behind each feature (such as the login system, the calendar, the forms, etc)
-7.Step 7 (Possible Duration: from 2 to 3 weeks): Gather testing and feedback from the audience to identify bugs in the web app and possible improvements.
+- Step 1 (Possible Duration: 1 week): Create an outline of the model of the Users in the program (Sponsors, Officers, and Members), which will contain the characteristics and abilities that each will have in the program.
+- Step 2 (Possible Duration: 1 week): Create a basic overview of the linking system of the webpage (including what happens when one clicks on links and buttons)
+- Step 3 (Possible Duration: 1 week): Set up the settings of the app (including databases, deployment server, static information storage, time zones, and document and image storage)
+- Step 4 (Possible Durations: up to 1 week): Search for online programming libraries that might be useful for specific aspects of the app.
+- Step 5 (Possible Duration: 1week): Plan the design of the Web app (including colors, where images will be placed, animations, etc)
+- Step 6 (Possible Duration: up to 5 months): Implement Views (what the user sees) along with the algorithms that go behind each feature (such as the login system, the calendar, the forms, etc)
+- Step 7 (Possible Duration: from 2 to 3 weeks): Gather testing and feedback from the audience to identify bugs in the web app and possible improvements.
 
 The project will require anywhere from 6 to 8 months for it to be fully ready for school usage.
