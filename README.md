@@ -1,9 +1,14 @@
 # Club Management System
 ### Purpose: Help TERRA have an organized system where administrators, club sponsors, club officers, and club members can all collaborate to reach their specific goal.
+
 ![Pic 3](https://user-images.githubusercontent.com/84081765/209986863-9d6b402c-6c90-489c-95f6-4698378bccd1.png)
+-------------------------------------------------------------------------------------------------------------------
 ![Pic 5](https://user-images.githubusercontent.com/84081765/209986875-f2005207-ed3d-4392-98fa-0f4fb31fd153.png)
+-------------------------------------------------------------------------------------------------------------------
 ![Pic 4](https://user-images.githubusercontent.com/84081765/209986870-77918a9b-5717-42fe-89cb-a1d9364c7521.png)
+-------------------------------------------------------------------------------------------------------------------
 ![Pic 1](https://user-images.githubusercontent.com/84081765/209986853-fabab0c1-c94b-4599-9607-5d2c492d0ae0.png)
+-------------------------------------------------------------------------------------------------------------------
 ![Pic 2](https://user-images.githubusercontent.com/84081765/209986861-62ba6a4b-aa09-417a-9632-e88c80a1a9ad.png)
 
 ## Important Note:
