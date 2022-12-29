@@ -2,10 +2,7 @@
 {% load static %}
     {% block css %}
         <link rel="stylesheet"  href="{% static 'management/styles/dashboard.css' %}">
-
     {% endblock %}
-
-
     {% block body_in %}
         <div class="title">
             <h1>Dashboard</h1>
@@ -55,7 +52,6 @@
                         <div class="calendar-dashboard-container">
                             <h3 class="tab-inner-container-title">Calendar</h3>
 {#                            {% include "event_calendar/calendarapp/calendar.html" %}#}
-
                         </div>
                     </div>
                 </div>
@@ -77,43 +73,9 @@
 
                     </div>
                 </div>
-
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{#            if is an administrator#}
-{#            <div class="recent-documents-submissions">#}
-{##}
-{#            </div>#}
-{##}
-{##}
-{#            <div class="my-clubs">#}
-                {#            if member#}
-                 {#            if is sponsor#}
-                {#            if is officer#}
-{##}
-{#            </div>#}
-
         </div>
     {% endblock %}
-
 
     {% block script %}
 

@@ -166,29 +166,22 @@
         </div>
     {% endblock %}
 
-
     {% block script_in %}
         <script>
+            const club_list_grid_display = document.getElementsByClassName('club-list-grid-display');
+            const club_list_list_display =  document.getElementsByClassName('club-list-list-display')
+            const grid_display =  document.getElementsByClassName('grid-display')
+            const list_display = document.getElementsByClassName('list-display')
+            grid_display.addEventListener("click", () => {
+                club_list_list_display.style.display='none';
+                club_list_grid_display.style.display='flex';
 
-                {#alert("ddd")#}
-                const club_list_grid_display = document.getElementsByClassName('club-list-grid-display');
-                const club_list_list_display =  document.getElementsByClassName('club-list-list-display')
-                const grid_display =  document.getElementsByClassName('grid-display')
-                const list_display = document.getElementsByClassName('list-display')
-                {#alert(grid_display)#}
-                grid_display.addEventListener("click", () => {
-                    {#alert("ddddd1")#}
-                    club_list_list_display.style.display='none';
-                    club_list_grid_display.style.display='flex';
+            })
+            list_display.addEventListener("click", () => {
+                club_list_grid_display.style.display='none';
+                club_list_list_display.style.display='flex';
 
-                })
-                list_display.addEventListener("click", () => {
-                    {#alert("dddsdd2")#}
-                    club_list_grid_display.style.display='none';
-                    club_list_list_display.style.display='flex';
-
-                })
-
+            })
         </script>
 
     {% endblock %}
