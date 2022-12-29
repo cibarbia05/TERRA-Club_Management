@@ -140,13 +140,11 @@
                   new TxtRotate(elements[i], JSON.parse(toRotate), period);
                 }
               }
-              // INJECT CSS
+
               var css = document.createElement("style");
               css.type = "text/css";
               css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
               document.body.appendChild(css);
-                {##}
-{#                #}
                 selectable_image_items = document.getElementsByClassName('selectable-image-item')
                 selectable_image_items[0].classList.add("selected_item")
                 selectable_image_items[0].style.backgroundColor = "#196fba";
@@ -209,7 +207,6 @@
                       }
 
                   }
-                  {#selectable_image_items[0].classList.add("selected_item")#}
             }
             var TxtRotate = function(el, toRotate, period) {
               this.toRotate = toRotate;
