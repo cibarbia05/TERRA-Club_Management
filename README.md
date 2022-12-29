@@ -1,4 +1,4 @@
-#Club Management System
+# Club Management System
 Purpose: Help TERRA have an organized system where administrators, club sponsors, club officers, and club members can all collaborate to reach their specific goal.
 
 #Important Note:
