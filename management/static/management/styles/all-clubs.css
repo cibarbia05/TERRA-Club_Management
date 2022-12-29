@@ -19,7 +19,6 @@ a {
   margin-top: 2px;
 
 }
-
 .club-list-manager a[title]:hover::after {
   font-size:0.6rem;
   content: attr(title);
@@ -92,8 +91,6 @@ td{
 .club-ul{
     list-style-type: none;
 }
-
-/**/
 .club-list-list-display-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -110,7 +107,6 @@ td{
 
     border-radius: 0.5rem;
 }
-
 .club-list-list-display-table thead tr {
     text-align: left;
 }
@@ -121,11 +117,9 @@ td{
 .club-list-list-display-table tbody tr {
     border-bottom: 1px solid #dddddd;
 }
-
 .club-list-list-display-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
-
 .club-list-list-display-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
