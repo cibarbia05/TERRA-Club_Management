@@ -5,4 +5,3 @@ from management.models import Club, Document
 
 admin.site.register(Club)
 admin.site.register(Document)
-#

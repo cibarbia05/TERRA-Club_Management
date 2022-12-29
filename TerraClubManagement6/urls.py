@@ -30,5 +30,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     path('management/', include('management.urls')),
-    # path('event_calendar/', include('event_calendar')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

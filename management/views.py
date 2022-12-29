@@ -12,12 +12,9 @@ from management.forms import UploadTeacherFileForm, UploadStudentFileForm, Uploa
 from management.models import Club
 
 
-# from pyexcel_xls import get_data as xls_get
-# from pyexcel_xlsx import get_data as xlsx_get
 
 
 def dashboard(request):
-    # print(is_club_sponsor)
     clubs = Club.objects.filter(name=is_club_sponsor(request.user))
     return render(request, 'management/dashboard.html', {
         "is_club_sponsor": is_club_sponsor(request.user),
@@ -55,7 +52,6 @@ def analytics(request):
 
 
 def documents(request):
-    print('Manijkfdfd')
     global data
     if request.method == "GET":
         upload_teacher_excel_file_form = UploadTeacherFileForm()
@@ -73,17 +69,8 @@ def documents(request):
         upload_student_excel_file_form = UploadStudentFileForm(request.POST, request.FILES)
         upload_club_excel_file_form = UploadClubFileForm(request.POST, request.FILES)
 
-        # excel_file_teacher_data = request.FILES['teacher_data']
-        # print(excel_file_teacher_data)
-        # upload_teacher_data(excel_file_teacher_data)
-        #
-        # excel_file_student_data = request.FILES['student_data']
-        # print(excel_file_student_data)
-        # upload_teacher_data(excel_file_student_data)
-
         excel_file_club_data = request.FILES['club_data']
-        print(excel_file_club_data)
-        print("AYO")
+
         if excel_file_club_data is not None:
             upload_club_data(excel_file_club_data)
             return render(request, 'management/documents.html', {
